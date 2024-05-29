@@ -5,14 +5,10 @@ export const useGetDataByCategory = (endpoint, category) => {
   const [data, setData] = useState(null)
   useEffect(() => {
     async function fetchData() {
-      const response = await getNormalizedGamesDataByCategory(endpoint, category)
-      if (isResponseOk(response)) {
-        setData(response.data)
-      } else {
-        setData(null)
-      }
+      const data = await getNormalizedGamesDataByCategory(endpoint, category)
+        setData(data)
     }
     fetchData()
-  }, )
+  }, [])
   return data
 }
